@@ -9,6 +9,16 @@
 #include "TcpClient.hpp"
 #include <netdb.h>
 #include <cassert>
+#include <unistd.h>
+#include <iostream>
+#include <cassert>
+#include <chrono>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <stdlib.h>
+#include <stdio.h>
 namespace Simplenet {
     TcpClient::TcpClient()
     {
@@ -48,5 +58,6 @@ namespace Simplenet {
                 this->_exit = true;
             }
         }
+        close(s);
     }
 }

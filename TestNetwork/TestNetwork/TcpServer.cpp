@@ -19,12 +19,59 @@
 #include <stdio.h>
 namespace Simplenet {
     TcpServer::TcpServer()
-    {        
+    {
+        _listenSocket = -1;
+    }
+    
+    void TcpServer::stop()
+    {
+        for (auto session: this->_sessions) {
+            session->_exit = true;
+        }
+        _exit = true;
+        if (_listenSocket>0) {
+            close(_listenSocket);
+            _listenSocket = -1;
+        }
+        
+        // join
+        _acceptThread.join();
+        for (auto session: this->_sessions) {
+            session->finalize();
+        }
+        
+        BasicServer::stop();
+        
+    }
+    void TcpServer::processAccept()
+    {
+        while(!_exit) {
+        std::cout<<"Processing Accept"<<std::endl;
+        struct sockaddr peer;
+        socklen_t peerLength;
+        int connectfd = accept(_listenSocket,&peer, &peerLength);
+        if (connectfd>=0) {
+            printf("Accepted=%d\n", connectfd);
+            addSession(connectfd);
+        }
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+        }
+    }
+    void TcpServer::checkSessions()
+    {
+        auto tmp = _sessions;
+        for (auto session: tmp) {
+            if (!session->_active) {
+                removeSession(session);
+            }
+        }
     }
     
     void TcpServer::process()
     {
         int s = socket(PF_INET6, SOCK_STREAM, IPPROTO_TCP);
+        _listenSocket = s;
+        _acceptThread = std::thread(&TcpServer::processAccept, this);
         int r = -1;
         int enable = 1;
         // reuse address
@@ -45,16 +92,8 @@ namespace Simplenet {
         assert(0<=r);
         std::chrono::seconds dura(1);
         while(!_exit) {
-            std::cout<<"Processinig"<<std::endl;
-            struct sockaddr peer;
-            socklen_t peerLength;
-            int connectfd = accept( s,&peer, &peerLength);
-            printf("Accepted=%d\n", connectfd);
-            std::string buf = "hello world!\n";
-            int w =(int) send(connectfd, buf.c_str(), buf.size(),0 );
-            printf("Written=%d\n", w);
-            std::this_thread::sleep_for(std::chrono::seconds(2));
-            close(connectfd);
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+            checkSessions();
         }
     }
    
@@ -62,5 +101,18 @@ namespace Simplenet {
     {
         _port = port;
         BasicServer::startThread();
+    }
+    
+    void TcpServer::addSession(int socket)
+    {
+        auto newone = TcpSessionShared(new TcpSession());        
+        newone->initialize(socket);
+        this->_sessions.push_back(newone);
+    }
+    
+    void TcpServer::removeSession(TcpSessionShared t)
+    {
+        t->finalize();
+        this->_sessions.remove(t);
     }
 }

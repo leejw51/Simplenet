@@ -8,13 +8,24 @@
 #ifndef TcpServer_hpp
 #define TcpServer_hpp
 #include "BasicServer.hpp"
-namespace Simplenet {
+#include "TcpSession.hpp"
+#include <list>
+#include <map>
+namespace Simplenet {    
     class TcpServer:public BasicServer {
     public:
+        std::list<TcpSessionShared> _sessions;
+        std::thread _acceptThread;
         int _port;
+        int _listenSocket;
         TcpServer();
-        void start(int port);       
+        void start(int port);
+        void stop();
         void process();
+        void processAccept();
+        void addSession(int socket);
+        void removeSession(TcpSessionShared t);
+        void checkSessions();
     };
 }
 

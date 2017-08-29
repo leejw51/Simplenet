@@ -9,6 +9,7 @@
 #ifndef TcpClient_hpp
 #define TcpClient_hpp
 #include <string>
+
 #include "BasicServer.hpp"
 namespace Simplenet {
     class TcpClient:public BasicServer {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C783B8B1F55A5DB00A39F39 /* TcpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C783B891F55A5DB00A39F39 /* TcpClient.cpp */; };
+		8C783B8E1F55BABA00A39F39 /* TcpSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C783B8C1F55BABA00A39F39 /* TcpSession.cpp */; };
 		8C8A6D071F554E8E001E0DB2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A6D061F554E8E001E0DB2 /* main.cpp */; };
 		8C8A6D0F1F554F21001E0DB2 /* Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A6D0D1F554F21001E0DB2 /* Buffer.cpp */; };
 		8C8A6D121F5559FE001E0DB2 /* TcpServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A6D101F5559FE001E0DB2 /* TcpServer.cpp */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		8C783B891F55A5DB00A39F39 /* TcpClient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TcpClient.cpp; sourceTree = "<group>"; };
 		8C783B8A1F55A5DB00A39F39 /* TcpClient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TcpClient.hpp; sourceTree = "<group>"; };
+		8C783B8C1F55BABA00A39F39 /* TcpSession.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TcpSession.cpp; sourceTree = "<group>"; };
+		8C783B8D1F55BABA00A39F39 /* TcpSession.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TcpSession.hpp; sourceTree = "<group>"; };
 		8C8A6D031F554E8E001E0DB2 /* TestNetwork */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestNetwork; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C8A6D061F554E8E001E0DB2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8C8A6D0D1F554F21001E0DB2 /* Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Buffer.cpp; sourceTree = "<group>"; };
@@ -82,6 +85,8 @@
 				8C8A6D171F556752001E0DB2 /* BasicServer.hpp */,
 				8C783B891F55A5DB00A39F39 /* TcpClient.cpp */,
 				8C783B8A1F55A5DB00A39F39 /* TcpClient.hpp */,
+				8C783B8C1F55BABA00A39F39 /* TcpSession.cpp */,
+				8C783B8D1F55BABA00A39F39 /* TcpSession.hpp */,
 			);
 			path = TestNetwork;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			files = (
 				8C8A6D071F554E8E001E0DB2 /* main.cpp in Sources */,
 				8C8A6D181F556752001E0DB2 /* BasicServer.cpp in Sources */,
+				8C783B8E1F55BABA00A39F39 /* TcpSession.cpp in Sources */,
 				8C8A6D0F1F554F21001E0DB2 /* Buffer.cpp in Sources */,
 				8C783B8B1F55A5DB00A39F39 /* TcpClient.cpp in Sources */,
 				8C8A6D121F5559FE001E0DB2 /* TcpServer.cpp in Sources */,
