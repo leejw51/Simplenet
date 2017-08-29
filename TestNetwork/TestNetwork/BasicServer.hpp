@@ -21,6 +21,7 @@ namespace Simplenet {
         virtual void process()=0;
         virtual void startThread();
         virtual void stopThread();
+        virtual void stop();
     };
 }
 

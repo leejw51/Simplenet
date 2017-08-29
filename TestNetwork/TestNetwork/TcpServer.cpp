@@ -15,6 +15,8 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 
 namespace Simplenet {
@@ -52,9 +54,14 @@ namespace Simplenet {
             std::cout<<"Processinig"<<std::endl;
             //std::this_thread::sleep_for(dura);
             struct sockaddr peer;
-            int connectfd = accept( s,NULL, NULL);
+            socklen_t peerLength;
+            int connectfd = accept( s,&peer, &peerLength);
             printf("Accepted=%d\n", connectfd);
-            send(connectfd, "hello", 5, 1);
+            std::string buf = "hello world!\n";
+            int w =(int) send(connectfd, buf.c_str(), buf.size(),0 );
+            printf("Written=%d\n", w);
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            close(connectfd);
             
         }
     }
@@ -64,8 +71,5 @@ namespace Simplenet {
         _port = port;
         BasicServer::startThread();
     }
-    void TcpServer::stop()
-    {
-        BasicServer::stopThread();
-    }
+    
 }

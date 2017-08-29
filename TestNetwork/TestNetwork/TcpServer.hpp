@@ -9,12 +9,12 @@
 #define TcpServer_hpp
 #include "BasicServer.hpp"
 namespace Simplenet {
-    class TcpServer: BasicServer {
+    class TcpServer:public BasicServer {
     public:
         int _port;
         TcpServer();
         void start(int port);
-        void stop();
+       
         void process();
     };
 }

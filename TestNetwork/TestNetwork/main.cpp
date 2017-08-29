@@ -1,4 +1,4 @@
-//
+	//
 //  main.cpp
 //  TestNetwork
 // network code test and develop
@@ -10,6 +10,7 @@
 #include <iostream>
 #include "Buffer.hpp"
 #include "TcpServer.hpp"
+#include "TcpClient.hpp"
 using namespace Simplenet;
 using namespace std;
 bool g_exit = false;
@@ -18,6 +19,22 @@ void processTcpServer()
     TcpServer t;
     t.start(8084);
     cout<<"TcpServer Began"<<endl;
+    while(!g_exit) {
+        cout<<"q. exit"<<endl;
+        string a;
+        cin>>a;
+        if ("q"==a) {
+            g_exit = true;
+            t.stop();
+            break;
+        }
+    }
+}
+void processTcpClient()
+{
+    TcpClient t;
+    t.start("localhost", 8084);
+    cout<<"TcpClient Began"<<endl;
     while(!g_exit) {
         cout<<"q. exit"<<endl;
         string a;
@@ -41,6 +58,9 @@ int main(int argc, const char * argv[])
         
         if ("1"==a) {
             processTcpServer();
+        }
+        else if ("2"==a) {
+            processTcpClient();
         }
         if ("q"==a) {
             break;

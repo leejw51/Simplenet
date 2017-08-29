@@ -24,4 +24,8 @@ namespace Simplenet {
         _exit = true;
         _thread.join();
     }
+    void BasicServer::stop()
+    {
+        stopThread();
+    }
 }
