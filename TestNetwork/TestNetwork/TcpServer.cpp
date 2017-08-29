@@ -17,8 +17,6 @@
 #include <netinet/in.h>
 #include <stdlib.h>
 #include <stdio.h>
-
-
 namespace Simplenet {
     TcpServer::TcpServer()
     {        
@@ -27,13 +25,11 @@ namespace Simplenet {
     void TcpServer::process()
     {
         int s = socket(PF_INET6, SOCK_STREAM, IPPROTO_TCP);
-        
         int r = -1;
         int enable = 1;
         // reuse address
         r=setsockopt(s, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int)) ;
         assert(0<=r);
-        
         // set inet6
         struct sockaddr_in6 sin;
         memset(&sin, 0, sizeof(sin));
@@ -41,18 +37,15 @@ namespace Simplenet {
         sin.sin6_family = AF_INET6; // or AF_INET6 (address family)
         sin.sin6_port = htons(_port);
         sin.sin6_addr = in6addr_any;
-        
         // bind
         r = bind(s, (struct sockaddr *)&sin, sizeof(sin));
         assert(0<=r);
-        
         // listen
         r = listen(s, 5);
         assert(0<=r);
         std::chrono::seconds dura(1);
         while(!_exit) {
             std::cout<<"Processinig"<<std::endl;
-            //std::this_thread::sleep_for(dura);
             struct sockaddr peer;
             socklen_t peerLength;
             int connectfd = accept( s,&peer, &peerLength);
@@ -62,7 +55,6 @@ namespace Simplenet {
             printf("Written=%d\n", w);
             std::this_thread::sleep_for(std::chrono::seconds(2));
             close(connectfd);
-            
         }
     }
    
@@ -70,6 +62,5 @@ namespace Simplenet {
     {
         _port = port;
         BasicServer::startThread();
-    }
-    
+    }    
 }

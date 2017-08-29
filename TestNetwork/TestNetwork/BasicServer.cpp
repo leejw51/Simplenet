@@ -11,8 +11,7 @@
 namespace Simplenet {
     BasicServer::BasicServer()
     {
-        _exit = false;
-        
+        _exit = false;        
     }
     
     void BasicServer::startThread()

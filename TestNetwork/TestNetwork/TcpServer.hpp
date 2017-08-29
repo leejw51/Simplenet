@@ -13,8 +13,7 @@ namespace Simplenet {
     public:
         int _port;
         TcpServer();
-        void start(int port);
-       
+        void start(int port);       
         void process();
     };
 }
