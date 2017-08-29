@@ -62,5 +62,5 @@ namespace Simplenet {
     {
         _port = port;
         BasicServer::startThread();
-    }    
+    }
 }

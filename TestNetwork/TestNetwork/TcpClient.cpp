@@ -36,13 +36,16 @@ namespace Simplenet {
         r = connect(s, (struct sockaddr *)&sin, sizeof(sin));
         assert(0<= r);
         while(!_exit) {
-            printf("TcpClient\n");
-            std::this_thread::sleep_for(std::chrono::seconds(1));
+            printf("TcpClient Processingq\n");
             char buf[300];
             memset(buf, 0, sizeof(buf));
             r = (int)recv(s, buf, 300, 0);
             if (r>0) {
-            printf("Receive %d Bytes = %s\n", r,buf);
+                printf("Receive %d Bytes = %s\n", r,buf);
+            }
+            else if (0==r) {
+                printf("Gracefully Closed\n");
+                this->_exit = true;
             }
         }
     }
