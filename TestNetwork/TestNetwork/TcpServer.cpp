@@ -7,10 +7,15 @@
 //
 
 #include "TcpServer.hpp"
+#include <unistd.h>
 #include <iostream>
 #include <cassert>
-#include <cassert>
 #include <chrono>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+
 
 namespace Simplenet {
     TcpServer::TcpServer()
@@ -45,7 +50,12 @@ namespace Simplenet {
         std::chrono::seconds dura(1);
         while(!_exit) {
             std::cout<<"Processinig"<<std::endl;
-            std::this_thread::sleep_for(dura);
+            //std::this_thread::sleep_for(dura);
+            struct sockaddr peer;
+            int connectfd = accept( s,NULL, NULL);
+            printf("Accepted=%d\n", connectfd);
+            send(connectfd, "hello", 5, 1);
+            
         }
     }
    
