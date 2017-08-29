@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8C8A6D071F554E8E001E0DB2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A6D061F554E8E001E0DB2 /* main.cpp */; };
 		8C8A6D0F1F554F21001E0DB2 /* Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A6D0D1F554F21001E0DB2 /* Buffer.cpp */; };
+		8C8A6D121F5559FE001E0DB2 /* TcpServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A6D101F5559FE001E0DB2 /* TcpServer.cpp */; };
+		8C8A6D151F555EB2001E0DB2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8A6D141F555EB2001E0DB2 /* CoreFoundation.framework */; };
+		8C8A6D181F556752001E0DB2 /* BasicServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A6D161F556752001E0DB2 /* BasicServer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +31,11 @@
 		8C8A6D061F554E8E001E0DB2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8C8A6D0D1F554F21001E0DB2 /* Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Buffer.cpp; sourceTree = "<group>"; };
 		8C8A6D0E1F554F21001E0DB2 /* Buffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Buffer.hpp; sourceTree = "<group>"; };
+		8C8A6D101F5559FE001E0DB2 /* TcpServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TcpServer.cpp; sourceTree = "<group>"; };
+		8C8A6D111F5559FE001E0DB2 /* TcpServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TcpServer.hpp; sourceTree = "<group>"; };
+		8C8A6D141F555EB2001E0DB2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		8C8A6D161F556752001E0DB2 /* BasicServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicServer.cpp; sourceTree = "<group>"; };
+		8C8A6D171F556752001E0DB2 /* BasicServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BasicServer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C8A6D151F555EB2001E0DB2 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +55,7 @@
 			children = (
 				8C8A6D051F554E8E001E0DB2 /* TestNetwork */,
 				8C8A6D041F554E8E001E0DB2 /* Products */,
+				8C8A6D131F555EB2001E0DB2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +73,20 @@
 				8C8A6D061F554E8E001E0DB2 /* main.cpp */,
 				8C8A6D0D1F554F21001E0DB2 /* Buffer.cpp */,
 				8C8A6D0E1F554F21001E0DB2 /* Buffer.hpp */,
+				8C8A6D101F5559FE001E0DB2 /* TcpServer.cpp */,
+				8C8A6D111F5559FE001E0DB2 /* TcpServer.hpp */,
+				8C8A6D161F556752001E0DB2 /* BasicServer.cpp */,
+				8C8A6D171F556752001E0DB2 /* BasicServer.hpp */,
 			);
 			path = TestNetwork;
+			sourceTree = "<group>";
+		};
+		8C8A6D131F555EB2001E0DB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C8A6D141F555EB2001E0DB2 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +148,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C8A6D071F554E8E001E0DB2 /* main.cpp in Sources */,
+				8C8A6D181F556752001E0DB2 /* BasicServer.cpp in Sources */,
 				8C8A6D0F1F554F21001E0DB2 /* Buffer.cpp in Sources */,
+				8C8A6D121F5559FE001E0DB2 /* TcpServer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

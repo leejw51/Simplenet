@@ -23,6 +23,7 @@ namespace Simplenet {
         // string
         void putString(std::string v);
         std::string getString(int& index);
+        static void test();
     };
 }
 
