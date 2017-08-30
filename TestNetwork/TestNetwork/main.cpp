@@ -11,6 +11,7 @@
 #include "Buffer.hpp"
 #include "TcpServer.hpp"
 #include "TcpClient.hpp"
+#include "Queue.hpp"
 using namespace Simplenet;
 using namespace std;
 bool g_exit = false;
@@ -46,9 +47,8 @@ void processTcpClient()
         }
     }
 }
-int main(int argc, const char * argv[])
+void serverMain()
 {
-    
     while(!g_exit) {
         cout<<"1. run tcp server"<<endl;
         cout<<"2. run tcp client"<<endl;
@@ -65,7 +65,12 @@ int main(int argc, const char * argv[])
         if ("q"==a) {
             break;
         }
-        
     }
+}
+
+void testQueue();
+int main(int argc, const char * argv[])
+{
+    testQueue();
     return 0;
 }

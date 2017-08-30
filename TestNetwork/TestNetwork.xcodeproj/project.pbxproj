@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		8C783B8B1F55A5DB00A39F39 /* TcpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C783B891F55A5DB00A39F39 /* TcpClient.cpp */; };
 		8C783B8E1F55BABA00A39F39 /* TcpSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C783B8C1F55BABA00A39F39 /* TcpSession.cpp */; };
-		8C783B911F55CAB700A39F39 /* Queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C783B8F1F55CAB700A39F39 /* Queue.cpp */; };
 		8C8A6D071F554E8E001E0DB2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A6D061F554E8E001E0DB2 /* main.cpp */; };
 		8C8A6D0F1F554F21001E0DB2 /* Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A6D0D1F554F21001E0DB2 /* Buffer.cpp */; };
 		8C8A6D121F5559FE001E0DB2 /* TcpServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A6D101F5559FE001E0DB2 /* TcpServer.cpp */; };
 		8C8A6D151F555EB2001E0DB2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8A6D141F555EB2001E0DB2 /* CoreFoundation.framework */; };
 		8C8A6D181F556752001E0DB2 /* BasicServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A6D161F556752001E0DB2 /* BasicServer.cpp */; };
+		8CDE36A21F56C13400F216B4 /* TestQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CDE36A01F56C13400F216B4 /* TestQueue.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,7 +34,6 @@
 		8C783B8A1F55A5DB00A39F39 /* TcpClient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TcpClient.hpp; sourceTree = "<group>"; };
 		8C783B8C1F55BABA00A39F39 /* TcpSession.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TcpSession.cpp; sourceTree = "<group>"; };
 		8C783B8D1F55BABA00A39F39 /* TcpSession.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TcpSession.hpp; sourceTree = "<group>"; };
-		8C783B8F1F55CAB700A39F39 /* Queue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Queue.cpp; sourceTree = "<group>"; };
 		8C783B901F55CAB700A39F39 /* Queue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Queue.hpp; sourceTree = "<group>"; };
 		8C8A6D031F554E8E001E0DB2 /* TestNetwork */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestNetwork; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C8A6D061F554E8E001E0DB2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -45,6 +44,8 @@
 		8C8A6D141F555EB2001E0DB2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		8C8A6D161F556752001E0DB2 /* BasicServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicServer.cpp; sourceTree = "<group>"; };
 		8C8A6D171F556752001E0DB2 /* BasicServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BasicServer.hpp; sourceTree = "<group>"; };
+		8CDE36A01F56C13400F216B4 /* TestQueue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestQueue.cpp; sourceTree = "<group>"; };
+		8CDE36A11F56C13400F216B4 /* TestQueue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestQueue.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +91,9 @@
 				8C783B8A1F55A5DB00A39F39 /* TcpClient.hpp */,
 				8C783B8C1F55BABA00A39F39 /* TcpSession.cpp */,
 				8C783B8D1F55BABA00A39F39 /* TcpSession.hpp */,
-				8C783B8F1F55CAB700A39F39 /* Queue.cpp */,
 				8C783B901F55CAB700A39F39 /* Queue.hpp */,
+				8CDE36A01F56C13400F216B4 /* TestQueue.cpp */,
+				8CDE36A11F56C13400F216B4 /* TestQueue.hpp */,
 			);
 			path = TestNetwork;
 			sourceTree = "<group>";
@@ -162,11 +164,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C783B911F55CAB700A39F39 /* Queue.cpp in Sources */,
 				8C8A6D071F554E8E001E0DB2 /* main.cpp in Sources */,
 				8C8A6D181F556752001E0DB2 /* BasicServer.cpp in Sources */,
 				8C783B8E1F55BABA00A39F39 /* TcpSession.cpp in Sources */,
 				8C8A6D0F1F554F21001E0DB2 /* Buffer.cpp in Sources */,
+				8CDE36A21F56C13400F216B4 /* TestQueue.cpp in Sources */,
 				8C783B8B1F55A5DB00A39F39 /* TcpClient.cpp in Sources */,
 				8C8A6D121F5559FE001E0DB2 /* TcpServer.cpp in Sources */,
 			);

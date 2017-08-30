@@ -11,9 +11,11 @@
 #include "TcpSession.hpp"
 #include <list>
 #include <map>
+#include <mutex>
 namespace Simplenet {    
     class TcpServer:public BasicServer {
     public:
+        std::mutex _lock;
         std::list<TcpSessionShared> _sessions;
         std::thread _acceptThread;
         int _port;

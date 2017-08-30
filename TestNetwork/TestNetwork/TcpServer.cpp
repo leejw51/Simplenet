@@ -51,7 +51,7 @@ namespace Simplenet {
         socklen_t peerLength;
         int connectfd = accept(_listenSocket,&peer, &peerLength);
         if (connectfd>=0) {
-            printf("Accepted=%d\n", connectfd);
+            printf("Accepted=%d\n", connectfd);            
             addSession(connectfd);
         }
             std::this_thread::sleep_for(std::chrono::seconds(1));
