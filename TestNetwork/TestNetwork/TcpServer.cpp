@@ -18,14 +18,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 namespace Simplenet {
-    void TcpAcceptMessage::process(BasicServer* s)
-    {
-        assert(s != nullptr);
-        TcpServer* p = (TcpServer*)(s);
-        assert(p != nullptr);
-        assert(0<= _socket);
-        p->doAddSession(_socket);
-    }
     TcpServer::TcpServer()
     {
         _listenSocket = -1;
@@ -105,7 +97,8 @@ namespace Simplenet {
             bool re = _queue.pop(message);
             if (re) {
                 assert(message.get()!=nullptr);
-                message->process(this);
+                assert(message->_lambda != nullptr);
+                message->_lambda(100);
             }
             checkSessions();
         }
@@ -120,16 +113,18 @@ namespace Simplenet {
     
     void TcpServer::addSession(int socket)
     {
-        TcpAcceptMessage* m = new TcpAcceptMessage();
-        m->_socket = socket;
-        MessageShared m2(m);
-        _queue.push(m2);
+        BasicServerMessage* m = new BasicServerMessage();
+        m->_lambda = [=](int dummy)->int {
+            auto newone = TcpSessionShared(new TcpSession());
+            newone->initialize(socket);
+            this->_sessions.push_back(newone);
+            return 0;
+        };
+        _queue.push(MessageShared(m));
     }
     void TcpServer::doAddSession(int socket)
     {
-        auto newone = TcpSessionShared(new TcpSession());
-        newone->initialize(socket);
-        this->_sessions.push_back(newone);
+        
     }
     
     void TcpServer::removeSession(TcpSessionShared t)

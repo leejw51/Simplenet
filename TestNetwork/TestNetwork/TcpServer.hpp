@@ -15,16 +15,6 @@
 #include <mutex>
 #include <memory>
 namespace Simplenet {
-    class TcpServer;    
-    class TcpAcceptMessage: public BasicServerMessage {
-    public:
-        TcpAcceptMessage()
-        {
-            _socket = -1;
-        }
-        int _socket;
-        void process(BasicServer*);
-    };
     class TcpServer:public BasicServer {
     public:                
         std::list<TcpSessionShared> _sessions;

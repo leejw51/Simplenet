@@ -17,6 +17,7 @@ namespace Simplenet {
     class BasicServer;
     class BasicServerMessage {
     public:
+        std::function<int(int)> _lambda;
         BasicServerMessage()
         {
         }
