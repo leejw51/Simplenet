@@ -15,29 +15,18 @@
 #include <mutex>
 #include <memory>
 namespace Simplenet {
-    class TcpServer;
-    class TcpServerMessage {
-    public:
-        TcpServerMessage()
-        {
-        }
-        virtual void process(TcpServer&){}
-    };
-    typedef std::shared_ptr<TcpServerMessage> MessageShared;
-    class TcpAcceptMessage: public TcpServerMessage {
+    class TcpServer;    
+    class TcpAcceptMessage: public BasicServerMessage {
     public:
         TcpAcceptMessage()
         {
             _socket = -1;
         }
         int _socket;
-        void process(TcpServer&);
+        void process(BasicServer*);
     };
     class TcpServer:public BasicServer {
-    public:
-        // enqueue, dequeue
-        Queue<MessageShared> _queue;
-        std::mutex _lock;
+    public:                
         std::list<TcpSessionShared> _sessions;
         std::thread _acceptThread;
         int _port;

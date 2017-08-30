@@ -12,11 +12,24 @@
 #include <netinet/in.h>
 #include <thread>
 #include <stdio.h>
+#include "Queue.hpp"
 namespace Simplenet {
+    class BasicServer;
+    class BasicServerMessage {
+    public:
+        BasicServerMessage()
+        {
+        }
+        virtual void process(BasicServer*){}
+    };
+    typedef std::shared_ptr<BasicServerMessage> MessageShared;
     class BasicServer {
     public:
+        std::mutex _lock;
         bool _exit;
         std::thread _thread;
+        // enqueue, dequeue
+        Queue<MessageShared> _queue;
         BasicServer();
         virtual void process()=0;
         virtual void startThread();

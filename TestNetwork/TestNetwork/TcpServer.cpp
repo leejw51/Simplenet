@@ -18,10 +18,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 namespace Simplenet {
-    void TcpAcceptMessage::process(TcpServer&p)
+    void TcpAcceptMessage::process(BasicServer* s)
     {
+        assert(s != nullptr);
+        TcpServer* p = (TcpServer*)(s);
+        assert(p != nullptr);
         assert(0<= _socket);
-        p.doAddSession(_socket);
+        p->doAddSession(_socket);
     }
     TcpServer::TcpServer()
     {
@@ -102,7 +105,7 @@ namespace Simplenet {
             bool re = _queue.pop(message);
             if (re) {
                 assert(message.get()!=nullptr);
-                message->process(*this);
+                message->process(this);
             }
             checkSessions();
         }
