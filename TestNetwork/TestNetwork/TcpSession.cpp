@@ -38,11 +38,11 @@ namespace Simplenet {
     void TcpSession::processSend()
     {
         while(!_exit) {
-            std::this_thread::sleep_for(std::chrono::seconds(2));
+            
             std::string buf = "hello world!\n";
             int w =(int) send(_socket, buf.c_str(), buf.size(),0 );
             printf("Written=%d\n", w);
-            std::this_thread::sleep_for(std::chrono::seconds(2));
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
         }
     }
     
