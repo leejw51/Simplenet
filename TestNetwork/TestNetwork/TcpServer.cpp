@@ -122,10 +122,6 @@ namespace Simplenet {
         };
         _queue.push(MessageShared(m));
     }
-    void TcpServer::doAddSession(int socket)
-    {
-        
-    }
     
     void TcpServer::removeSession(TcpSessionShared t)
     {

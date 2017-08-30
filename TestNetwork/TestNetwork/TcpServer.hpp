@@ -27,7 +27,6 @@ namespace Simplenet {
         void process();
         void processAccept();
         void addSession(int socket);
-        void doAddSession(int socket);
         void removeSession(TcpSessionShared t);
         void checkSessions();
     };
